@@ -41,4 +41,11 @@ search( :users, "shell:*zsh AND NOT action:remove" ).each do |u|
     variables( :theme => ( theme || node[:ohmyzsh][:theme] ))
     action :create_if_missing
   end
+
+  cookbook_file "#{node['etc']['passwd'][node['current_user']]['dir']}/.oh-my-zsh/themes/kono.zsh-theme" do
+    source "kono.zsh-theme"
+    owner node['current_user']
+    backup false
+    mode "0777"
+  end
 end

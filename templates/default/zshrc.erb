@@ -19,8 +19,14 @@ export ZSH_THEME="<%= @theme %>"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git bundler rbenv)
 
 source $ZSH/oh-my-zsh.sh
-
+export JAVA_HOME="<%= @java_home %>"
+export JAVA_OPTS="<%= @java_opts %>"
+export MAVEN_OPTS="<%= @maven_opts %>"
+export M2_HOME="<%= @editor %>"
+export EDITOR='subl -w'
+export COPYFILE_DISABLE="<%= @copyfile_disable %>"
+export RBENV_ROOT="<%= @editor %>"
 # Customize to your needs...
