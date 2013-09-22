@@ -22,7 +22,7 @@ include_recipe "zsh"
 
 if platform?('ubuntu')
   user_id = node['current_user']
-  
+
   git "/home/#{user_id}/.oh-my-zsh" do
     repository "https://github.com/robbyrussell/oh-my-zsh.git"
     reference "master"
@@ -37,7 +37,6 @@ if platform?('ubuntu')
     source "zshrc.erb"
     owner user_id
     group user_id
-    variables( :theme => ( theme || node[:ohmyzsh][:theme] ))
     action :create_if_missing
   end
 
