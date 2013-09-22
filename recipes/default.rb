@@ -37,6 +37,14 @@ if platform?('ubuntu')
     source "zshrc.erb"
     owner user_id
     group user_id
+    variables( :theme => ( node[:ohmyzsh][:theme] ),
+      (:java_home => node[:ohmyzsh][:java_home]),
+      (:java_opts => node[:ohmyzsh][:java_opts]),
+      (:maven_opts => node[:ohmyzsh][:maven_opts]),
+      (:m2_home => node[:ohmyzsh][:m2_home]),
+      (:editor => node[:ohmyzsh][:editor]),
+      (:copyfile_disabel => node[:ohmyzsh][:copyfile_disable]),
+      (:rbenv_root => node[:ohmyzsh][:rbenv_root]))
     action :create_if_missing
   end
 
