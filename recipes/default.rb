@@ -21,7 +21,7 @@ include_recipe "git"
 include_recipe "zsh"
 
 if platform?('ubuntu')
-  git "/home/#node['current_user']/.oh-my-zsh" do
+  git "/home/#{node['current_user']}/.oh-my-zsh" do
     repository "https://github.com/robbyrussell/oh-my-zsh.git"
     reference "master"
     user user_id
