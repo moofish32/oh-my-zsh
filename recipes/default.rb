@@ -20,10 +20,8 @@
 include_recipe "git"
 include_recipe "zsh"
 
-search( :users, "shell:*zsh AND NOT action:remove" ).each do |u|
-  user_id = u["id"]
-
-  git "/home/#{user_id}/.oh-my-zsh" do
+if platform?('ubuntu')
+  git "/home/#node['current_user']/.oh-my-zsh" do
     repository "https://github.com/robbyrussell/oh-my-zsh.git"
     reference "master"
     user user_id
@@ -32,7 +30,6 @@ search( :users, "shell:*zsh AND NOT action:remove" ).each do |u|
     not_if "test -d /home/#{user_id}/.oh-my-zsh"
   end
 
-  theme = data_bag_item( "users", user_id )["oh-my-zsh-theme"]
 
   template "/home/#{user_id}/.zshrc" do
     source "zshrc.erb"

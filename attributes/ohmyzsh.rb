@@ -1,4 +1,4 @@
-if platform?(ubuntu)
+if platform?('ubuntu')
 	default[:ohmyzsh][:theme] = "kono"
 	default[:ohmyzsh][:java_home] = ""
 	default[:ohmyzsh][:java_opts]="-Xms2048M -Xmx6144M -XX:MaxPermSize]=6144M"
